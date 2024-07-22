@@ -6,5 +6,5 @@ Hono の練習。pnpm 使用。
 
 ```sh
 pnpm dev &
-curlhttp://localhost:3000
+curl http://localhost:3000
 ```

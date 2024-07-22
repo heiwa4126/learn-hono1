@@ -26,10 +26,14 @@ app.post("/posts", (c) => c.text("Created!", 201));
 app.delete("/posts/:id", (c) => c.text(`${c.req.param("id")} is deleted!`));
 
 const View = () => {
+	const title = "Hello Hono!";
 	return (
 		<html lang="en">
+			<head>
+				<title>{title}</title>
+			</head>
 			<body>
-				<h1>Hello Hono!</h1>
+				<h1>{title}</h1>
 			</body>
 		</html>
 	);
