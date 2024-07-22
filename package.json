@@ -10,7 +10,9 @@
     "ex3": "curl localhost:3000/posts/1",
     "ex4": "curl localhost:3000/posts/2",
     "ex5": "curl -X POST localhost:3000/posts",
-    "ex6": "curl -X DELETE localhost:3000/posts/1"
+    "ex6": "curl -X DELETE localhost:3000/posts/1",
+    "ex7": "curl localhost:3000/page",
+    "ex8": "curl localhost:3000/raw"
   },
   "dependencies": {
     "@hono/node-server": "^1.12.0",

@@ -1,5 +1,6 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import { basicAuth } from "hono/basic-auth";
 
 const app = new Hono();
 
@@ -23,6 +24,36 @@ app.get("/posts/:id", (c) => {
 
 app.post("/posts", (c) => c.text("Created!", 201));
 app.delete("/posts/:id", (c) => c.text(`${c.req.param("id")} is deleted!`));
+
+const View = () => {
+	return (
+		<html lang="en">
+			<body>
+				<h1>Hello Hono!</h1>
+			</body>
+		</html>
+	);
+};
+
+app.get("/page", (c) => {
+	return c.html(<View />);
+});
+
+app.get("/raw", (c) => {
+	return new Response("Good morning!");
+});
+
+app.use(
+	"/admin/*",
+	basicAuth({
+		username: "admin",
+		password: "secret",
+	}),
+);
+
+app.get("/admin", (c) => {
+	return c.text("You are authorized!");
+});
 
 const port = 3000;
 console.log(`Server is running on port ${port}`);
