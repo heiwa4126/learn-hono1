@@ -1,5 +1,6 @@
+import { expect, it } from "@jest/globals";
 import { testClient } from "hono/testing";
-import app from "../src/app.js";
+import app from "./app.js";
 
 it("test", async () => {
 	const client = testClient(app);
