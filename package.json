@@ -4,7 +4,13 @@
 		"dev": "tsx watch src/index.ts",
 		"format": "biome format --write .",
 		"lint": "biome lint .",
-		"check": "biome check --apply ."
+		"check": "biome check --apply .",
+		"ex1": "curl localhost:3000",
+		"ex2": "curl localhost:3000/api/hello",
+		"ex3": "curl localhost:3000/posts/1",
+		"ex4": "curl localhost:3000/posts/2",
+		"ex5": "curl -X POST localhost:3000/posts",
+		"ex6": "curl -X DELETE localhost:3000/posts/1"
 	},
 	"dependencies": {
 		"@hono/node-server": "^1.12.0",
