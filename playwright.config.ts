@@ -33,6 +33,11 @@ export default defineConfig({
 		// trace: "on",
 		// screenshot: "on",
 		// colorScheme: "dark",
+
+		httpCredentials: {
+			username: "admin",
+			password: "secret",
+		},
 	},
 
 	/* Configure projects for major browsers */

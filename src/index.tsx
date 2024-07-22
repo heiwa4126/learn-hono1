@@ -59,6 +59,10 @@ app.get("/admin", (c) => {
 	return c.text("You are authorized!");
 });
 
+app.get("/admin/index.html", (c) => {
+	return c.html(<View />);
+});
+
 const port = 3000;
 console.log(`Server is running on port ${port}`);
 
