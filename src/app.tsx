@@ -1,4 +1,3 @@
-import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { basicAuth } from "hono/basic-auth";
 
@@ -63,10 +62,4 @@ app.get("/admin/index.html", (c) => {
 	return c.html(<View />);
 });
 
-const port = 3000;
-console.log(`Server is running on port ${port}`);
-
-serve({
-	fetch: app.fetch,
-	port,
-});
+export default app;
