@@ -12,7 +12,10 @@
 		"ex5": "curl -X POST localhost:3000/posts",
 		"ex6": "curl -X DELETE localhost:3000/posts/1",
 		"ex7": "curl localhost:3000/page",
-		"ex8": "curl localhost:3000/raw"
+		"ex8": "curl localhost:3000/raw",
+		"test:e2e:test": "playwright test",
+		"test:e2e:show-report": "playwright show-report",
+		"test:e2e": "run-s test:e2e:test test:e2e:show-report"
 	},
 	"dependencies": {
 		"@hono/node-server": "^1.12.0",
@@ -20,7 +23,9 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
-		"@types/node": "^20.11.17",
+		"@playwright/test": "^1.45.2",
+		"@types/node": "^20.14.11",
+		"npm-run-all": "^4.1.5",
 		"tsx": "^4.7.1"
 	},
 	"packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
