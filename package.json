@@ -6,7 +6,7 @@
 		"build": "tsc",
 		"format": "biome format --write .",
 		"lint": "biome lint .",
-		"check": "biome check --apply .",
+		"check": "biome check --write .",
 		"ex1": "curl localhost:3000",
 		"ex2": "curl localhost:3000/api/hello",
 		"ex3": "curl localhost:3000/posts/1",
@@ -20,21 +20,21 @@
 		"test:e2e": "run-s test:e2e:test test:e2e:show-report"
 	},
 	"dependencies": {
-		"@hono/node-server": "^1.12.0",
-		"hono": "^4.5.1"
+		"@hono/node-server": "^1.12.2",
+		"hono": "^4.5.10"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
 		"@jest/globals": "^29.7.0",
 		"@jest/types": "^29.6.3",
-		"@playwright/test": "^1.45.2",
+		"@playwright/test": "^1.46.1",
 		"@types/jest": "^29.5.12",
-		"@types/node": "^20.14.11",
+		"@types/node": "^20.16.3",
 		"jest": "^29.7.0",
 		"npm-run-all": "^4.1.5",
 		"ts-node": "^10.9.2",
-		"tsx": "^4.16.2",
-		"typescript": "^5.5.3"
+		"tsx": "^4.19.0",
+		"typescript": "^5.5.4"
 	},
 	"packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
 	"version": "0.0.2"
