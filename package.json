@@ -20,7 +20,7 @@
 		"test:e2e": "run-s test:e2e:test test:e2e:show-report"
 	},
 	"dependencies": {
-		"@hono/node-server": "^1.12.2",
+		"@hono/node-server": "^1.13.4",
 		"hono": "^4.5.10"
 	},
 	"devDependencies": {
