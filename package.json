@@ -6,7 +6,7 @@
 		"build": "tsc",
 		"format": "biome format --write . && dprint fmt",
 		"check": "biome check --write . && dprint check",
-		"ex1": "curl localhost:3000",
+		"ex1": "curl localhost:3000 && echo",
 		"ex2": "curl localhost:3000/api/hello",
 		"ex3": "curl localhost:3000/posts/1",
 		"ex4": "curl localhost:3000/posts/2",

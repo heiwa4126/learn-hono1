@@ -24,8 +24,7 @@ app.get("/posts/:id", (c) => {
 app.post("/posts", (c) => c.text("Created!", 201));
 app.delete("/posts/:id", (c) => c.text(`${c.req.param("id")} is deleted!`));
 
-const View = () => {
-	const title = "Hello Hono!";
+const View = ({ title = "hello hono!" }: { title?: string }) => {
 	return (
 		<html lang="en">
 			<head>
@@ -59,7 +58,7 @@ app.get("/admin", (c) => {
 });
 
 app.get("/admin/index.html", (c) => {
-	return c.html(<View />);
+	return c.html(<View title="Hello Hono! in admin" />);
 });
 
 export default app;
