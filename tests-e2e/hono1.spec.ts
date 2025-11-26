@@ -5,11 +5,11 @@ import { expect, test } from "@playwright/test";
 test("has title", async ({ page }) => {
 	await page.goto("http://localhost:3000/page");
 	await page.waitForLoadState("load");
-	await expect(page).toHaveTitle("Hello Hono!");
+	await expect(page).toHaveTitle("hello hono!");
 });
 
 test("basic authentication", async ({ page }) => {
 	await page.goto("http://localhost:3000/admin/index.html");
 	await page.waitForLoadState("load");
-	await expect(page).toHaveTitle("Hello Hono!");
+	await expect(page).toHaveTitle("Hello Hono! in admin");
 });

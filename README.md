@@ -7,14 +7,21 @@ Hono の練習。pnpm 使用。
 ## とりあえず動かす
 
 ```sh
+# 準備
+pnpm i
+
+# ホットリロードつきで起動
 pnpm dev &
-curl http://localhost:3000
+pnpm ex1
 ```
 
 ## Playwright を使った e2e テスト
 
 ```sh
-pnpm test:e2e
+# 準備
+pnpm exec playwright install chromium  # とりあえず chrome だけあればOK
+# テスト実行
+pnpm test:e2e:test
 ```
 
 ## ビルド
