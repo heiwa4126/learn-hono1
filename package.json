@@ -3,7 +3,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "tsx watch src/index.ts",
-		"build": "tsc",
+		"build": "rm -rf ./dist && tsc",
 		"format": "biome format --write . && dprint fmt",
 		"check": "biome check --write . && dprint check",
 		"ex1": "curl localhost:3000 && echo",
@@ -23,7 +23,7 @@
 		"hono": "^4.6.10"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
+		"@biomejs/biome": "^2.3.7",
 		"@jest/globals": "^29.7.0",
 		"@jest/types": "^29.6.3",
 		"@playwright/test": "^1.48.2",
