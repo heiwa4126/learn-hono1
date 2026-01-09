@@ -1,14 +1,19 @@
 {
-	"name": "hono1",
-	"version": "0.0.2",
+	"name": "learn-hono1",
+	"description": "Hono v4 example project #1",
+	"version": "0.0.0-alpha.0",
 	"type": "module",
+	"bin": {
+		"learn-hono1": "dist/index.mjs"
+	},
 	"scripts": {
 		"dev": "tsx watch src/index.ts",
-		"build": "rm -rf ./dist && tsc",
-		"preview": "node ./dist/index.js",
+		"build": "tsdown",
+		"preview": "node ./dist/index.mjs",
 		"format": "biome format --write .",
 		"format:all": "biome format --write . && dprint fmt",
 		"lint": "biome lint .",
+		"test": "vitest run",
 		"ex1": "curl localhost:3000 && echo",
 		"ex2": "curl localhost:3000/api/hello",
 		"ex3": "curl localhost:3000/posts/1",
@@ -17,11 +22,27 @@
 		"ex6": "curl -X DELETE localhost:3000/posts/1",
 		"ex7": "curl localhost:3000/page",
 		"ex8": "curl localhost:3000/raw",
-		"test": "vitest run",
+		"smoke-test": "run-s ex1 ex2 ex3 ex4 ex5 ex6 ex7 ex8",
 		"test:e2e:test": "playwright test",
 		"test:e2e:show-report": "playwright show-report",
 		"test:e2e": "run-s test:e2e:test test:e2e:show-report"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/heiwa4126/learn-hono1.git"
+	},
+	"bugs": {
+		"url": "https://github.com/heiwa4126/learn-hono1/issues"
+	},
+	"homepage": "https://github.com/heiwa4126/learn-hono1#readme",
+	"license": "MIT",
+	"files": [
+		"dist/**/*.js",
+		"dist/**/*.mjs",
+		"dist/**/*.cjs",
+		"dist/**/*.d.ts",
+		"!dist/**/*.map"
+	],
 	"dependencies": {
 		"@hono/node-server": "^1.19.7",
 		"@hono/zod-validator": "^0.7.6",
@@ -29,11 +50,10 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.11",
-		"@jest/types": "^30.2.0",
 		"@playwright/test": "^1.57.0",
 		"@types/node": "^25.0.3",
-		"@vitest/ui": "^4.0.16",
 		"npm-run-all2": "^8.0.4",
+		"tsdown": "0.19.0-beta.5",
 		"tsx": "^4.21.0",
 		"typescript": "^5.9.3",
 		"vitest": "^4.0.16",

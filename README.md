@@ -1,8 +1,8 @@
 # learn-hono1
 
-Hono の練習。pnpm 使用。
-
+Hono v4 の練習。
 [Getting Started - Hono](https://hono.dev/docs/getting-started/basic) のあたり。
+pnpm 使用。
 
 ## とりあえず動かす
 
@@ -15,22 +15,37 @@ pnpm dev &
 pnpm ex1
 ```
 
+## テスト
+
+```sh
+pnpm test
+```
+
 ## Playwright を使った e2e テスト
+
+Playwright を使うほどのパッケージではないのだけど練習として。
 
 ```sh
 # 準備
-pnpm exec playwright install chromium  # とりあえず chrome だけあればOK
-# テスト実行
-pnpm test:e2e:test
+pnpm exec playwright install chromium  # とりあえず chrome だけで始めてみる
+# テスト実行 & レポート
+pnpm test:e2e
 ```
 
 ## ビルド
 
 ```sh
+pnpm lint
 pnpm build
+## `./dist/index.mjs` にトランスパイルされる。
+pnpm run preview
+pnpm run smoke-test
+#
+pnpm pack
 ```
 
-`./dist` の下にトランスパイルされる。
-詳しくは [Node.js - Hono の Dockerfile のところ](https://hono.dev/docs/getting-started/nodejs#dockerfile) 参照。
+## TODO
 
-TODO: パッケージング & バンドル
+- [x] バンドル - tsdown つかった
+- [x] パッケージング - ちゃんと発行すれば `npx learn-hono1` でサーバが上がるはず
+- [ ] パブリッシュ
