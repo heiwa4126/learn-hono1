@@ -1,6 +1,6 @@
 import { testClient } from "hono/testing";
 import { describe, expect, it } from "vitest";
-import app from "./app.js";
+import app, { postsQuerySchema } from "./app.js";
 
 describe("app", () => {
 	const client = testClient(app);
@@ -23,10 +23,11 @@ describe("app", () => {
 	it("GET /posts/:id should return post info with query params", async () => {
 		const res = await client.posts[":id"].$get({
 			param: { id: "123" },
+			query: { page: "2" },
 		});
 		expect(res.status).toBe(200);
 		expect(res.headers.get("X-Message")).toBe("Hi!");
-		expect(await res.text()).toContain("123");
+		expect(await res.text()).toBe("You want see 2 of 123");
 	});
 
 	it("POST /posts should create a new post", async () => {
@@ -83,5 +84,51 @@ describe("app", () => {
 		expect(res.headers.get("Content-Type")).toMatch(/text\/html/);
 		const html = await res.text();
 		expect(html).toContain("<title>Hello Hono! in admin</title>");
+	});
+});
+
+describe("postsQuerySchema", () => {
+	it("should accept valid positive number", () => {
+		const result = postsQuerySchema.safeParse({ page: "5" });
+		expect(result.success).toBe(true);
+		if (result.success) {
+			expect(result.data.page).toBe(5);
+		}
+	});
+
+	it("should use default value when page is not provided", () => {
+		const result = postsQuerySchema.safeParse({});
+		expect(result.success).toBe(true);
+		if (result.success) {
+			expect(result.data.page).toBe(0);
+		}
+	});
+
+	it("should reject negative number", () => {
+		const result = postsQuerySchema.safeParse({ page: "-1" });
+		expect(result.success).toBe(false);
+	});
+
+	it("should reject zero", () => {
+		const result = postsQuerySchema.safeParse({ page: "0" });
+		expect(result.success).toBe(false);
+	});
+
+	it("should reject non-numeric string", () => {
+		const result = postsQuerySchema.safeParse({ page: "abc" });
+		expect(result.success).toBe(false);
+	});
+
+	it("should accept decimal and convert to number", () => {
+		const result = postsQuerySchema.safeParse({ page: "3.14" });
+		expect(result.success).toBe(true);
+		if (result.success) {
+			expect(result.data.page).toBe(3.14);
+		}
+	});
+
+	it("should reject empty string", () => {
+		const result = postsQuerySchema.safeParse({ page: "" });
+		expect(result.success).toBe(false);
 	});
 });

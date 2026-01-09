@@ -1,5 +1,7 @@
+import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
 import { basicAuth } from "hono/basic-auth";
+import { z } from "zod";
 
 const api = new Hono().get("/hello", (c) => {
 	return c.json({
@@ -8,7 +10,21 @@ const api = new Hono().get("/hello", (c) => {
 	});
 });
 
-const View = ({ title = "hello hono!" }: { title?: string }) => {
+export const postsQuerySchema = z.object({
+	page: z.coerce.number().positive().optional().default(0),
+});
+
+const posts1 = new Hono()
+	.get("/:id", zValidator("query", postsQuerySchema), (c) => {
+		const { page } = c.req.valid("query");
+		const id = c.req.param("id");
+		c.header("X-Message", "Hi!");
+		return c.text(`You want see ${page} of ${id}`);
+	})
+	.post("/", (c) => c.text("Created!", 201))
+	.delete("/:id", (c) => c.text(`${c.req.param("id")} is deleted!`));
+
+const View1 = ({ title = "hello hono!" }: { title?: string }) => {
 	return (
 		<html lang="en">
 			<head>
@@ -23,19 +39,12 @@ const View = ({ title = "hello hono!" }: { title?: string }) => {
 
 const app = new Hono()
 	.route("/api", api)
+	.route("/posts", posts1)
 	.get("/", (c) => {
 		return c.text("Hello Hono!");
 	})
-	.get("/posts/:id", (c) => {
-		const page = c.req.query("page");
-		const id = c.req.param("id");
-		c.header("X-Message", "Hi!");
-		return c.text(`You want see ${page} of ${id}`);
-	})
-	.post("/posts", (c) => c.text("Created!", 201))
-	.delete("/posts/:id", (c) => c.text(`${c.req.param("id")} is deleted!`))
 	.get("/page", (c) => {
-		return c.html(<View />);
+		return c.html(<View1 />);
 	})
 	.get("/raw", (_c) => {
 		return new Response("Good morning!");
@@ -51,8 +60,7 @@ const app = new Hono()
 		return c.text("You are authorized!");
 	})
 	.get("/admin/index.html", (c) => {
-		return c.html(<View title="Hello Hono! in admin" />);
+		return c.html(<View1 title="Hello Hono! in admin" />);
 	});
 
-export type AppType = typeof app;
 export default app;
