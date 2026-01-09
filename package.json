@@ -22,7 +22,7 @@
 		"ex6": "curl -X DELETE localhost:3000/posts/1",
 		"ex7": "curl localhost:3000/page",
 		"ex8": "curl localhost:3000/raw",
-		"smoke-test": "run-s ex1 ex2 ex3 ex4 ex5 ex6 ex7 ex8",
+		"smoke-test": "run-p --max-parallel 2 ex1 ex2 ex3 ex4 ex5 ex6 ex7 ex8",
 		"test:e2e:test": "playwright test",
 		"test:e2e:show-report": "playwright show-report",
 		"test:e2e": "run-s test:e2e:test test:e2e:show-report"

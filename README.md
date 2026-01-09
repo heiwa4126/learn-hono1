@@ -27,7 +27,7 @@ Playwright を使うほどのパッケージではないのだけど練習とし
 
 ```sh
 # 準備
-pnpm exec playwright install chromium  # とりあえず chrome だけで始めてみる
+pnpm exec playwright install chromium  # とりあえず Chrome だけで始めてみる
 # テスト実行 & レポート
 pnpm test:e2e
 ```
