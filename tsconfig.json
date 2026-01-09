@@ -11,12 +11,5 @@
 		"outDir": "./dist",
 		"rootDir": "./src"
 	},
-	"exclude": [
-		"node_modules",
-		"**/*.config.ts",
-		"tests-e2e",
-		"playwright*",
-		"/**/*.test.ts",
-		"tests-e2e/**/*.spec.ts"
-	]
+	"exclude": ["**/*.config.ts", "tests-e2e", "playwright*", "**/*.test.ts"]
 }
