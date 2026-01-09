@@ -41,7 +41,7 @@ app.get("/page", (c) => {
 	return c.html(<View />);
 });
 
-app.get("/raw", (c) => {
+app.get("/raw", (_c) => {
 	return new Response("Good morning!");
 });
 
