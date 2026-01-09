@@ -5,9 +5,9 @@
 	"scripts": {
 		"dev": "tsx watch src/index.ts",
 		"build": "rm -rf ./dist && tsc",
-		"preview": "node ./dist/src/index.js",
-		"format": "biome format --write . && dprint fmt",
-		"check": "biome check --write . && dprint check",
+		"preview": "node ./dist/index.js",
+		"format": "biome format --write .",
+		"format:all": "biome format --write . && dprint fmt",
 		"lint": "biome lint .",
 		"ex1": "curl localhost:3000 && echo",
 		"ex2": "curl localhost:3000/api/hello",

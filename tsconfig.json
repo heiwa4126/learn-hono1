@@ -8,11 +8,12 @@
 		"types": ["node", "vitest"],
 		"jsx": "react-jsx",
 		"jsxImportSource": "hono/jsx",
-		"outDir": "./dist"
+		"outDir": "./dist",
+		"rootDir": "./src"
 	},
 	"exclude": [
 		"node_modules",
-		"__tests__",
+		"**/*.config.ts",
 		"tests-e2e",
 		"playwright*",
 		"/**/*.test.ts",
