@@ -21,6 +21,27 @@ pnpm ex1
 pnpm test
 ```
 
+### スモークテスト
+
+```sh
+pnpm run dev &
+# または
+pnpm build
+pnpm run preview &
+```
+
+したあと
+
+```sh
+pnpm run smoke-test
+```
+
+終わったら
+
+```sh
+kill %1
+```
+
 ## Playwright を使った e2e テスト
 
 Playwright を使うほどのパッケージではないのだけど練習として。
