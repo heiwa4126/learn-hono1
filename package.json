@@ -1,18 +1,35 @@
 {
 	"name": "learn-hono1",
-	"description": "Hono v4 example project #1",
 	"version": "0.0.0-alpha.0",
-	"type": "module",
+	"description": "Hono v4 example project #1",
+	"homepage": "https://github.com/heiwa4126/learn-hono1#readme",
+	"bugs": {
+		"url": "https://github.com/heiwa4126/learn-hono1/issues"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/heiwa4126/learn-hono1.git"
+	},
 	"bin": {
 		"learn-hono1": "dist/index.mjs"
 	},
+	"files": [
+		"dist/**/*.js",
+		"dist/**/*.mjs",
+		"dist/**/*.cjs",
+		"dist/**/*.d.ts",
+		"!dist/**/*.map"
+	],
+	"type": "module",
 	"scripts": {
 		"dev": "tsx watch src/index.ts",
 		"build": "tsdown",
 		"preview": "node ./dist/index.mjs",
-		"format": "biome format --write .",
-		"format:all": "biome format --write . && dprint fmt",
-		"lint": "biome lint .",
+		"preinstall": "pnpm audit",
+		"format": "oxfmt",
+		"lint": "oxlint",
+		"check": "oxfmt && oxlint --fix",
 		"test": "vitest run",
 		"ex1": "curl localhost:3000 && echo",
 		"ex2": "curl localhost:3000/api/hello",
@@ -27,36 +44,19 @@
 		"test:e2e:show-report": "playwright show-report",
 		"test:e2e": "run-s test:e2e:test test:e2e:show-report"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/heiwa4126/learn-hono1.git"
-	},
-	"bugs": {
-		"url": "https://github.com/heiwa4126/learn-hono1/issues"
-	},
-	"homepage": "https://github.com/heiwa4126/learn-hono1#readme",
-	"license": "MIT",
-	"files": [
-		"dist/**/*.js",
-		"dist/**/*.mjs",
-		"dist/**/*.cjs",
-		"dist/**/*.d.ts",
-		"!dist/**/*.map"
-	],
 	"dependencies": {
-		"@hono/node-server": "^1.19.10",
+		"@hono/node-server": "^1.19.12",
 		"@hono/zod-validator": "^0.7.6",
-		"hono": "^4.12.7"
+		"hono": "^4.12.9"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.5",
-		"@playwright/test": "^1.58.2",
-		"@types/node": "^25.3.3",
+		"@playwright/test": "^1.59.0",
+		"@types/node": "^25.5.0",
 		"npm-run-all2": "^8.0.4",
-		"tsdown": "0.20.3",
+		"tsdown": "0.21.7",
 		"tsx": "^4.21.0",
-		"typescript": "^5.9.3",
-		"vitest": "^4.0.18",
+		"typescript": "^6.0.2",
+		"vitest": "^4.1.2",
 		"zod": "^4.3.6"
 	}
 }
