@@ -10,7 +10,7 @@ export default defineConfig([
 		sourcemap: false,
 		dts: false,
 		unbundle: false,
-		minify: true,
+		minify: true
 	},
 	{
 		// // テスト: dist/index.mjs に全バンドル版を出力
@@ -24,5 +24,5 @@ export default defineConfig([
 		// unbundle: false,
 		// minify: true,
 		// noExternal: ["**/*"], // Bundle all dependencies
-	},
+	}
 ]);

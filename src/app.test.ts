@@ -10,7 +10,7 @@ describe("app", () => {
 		expect(res.status).toBe(200);
 		expect(await res.json()).toEqual({
 			ok: true,
-			message: "Hello Hono!",
+			message: "Hello Hono!"
 		});
 	});
 
@@ -23,7 +23,7 @@ describe("app", () => {
 	it("GET /posts/:id should return post info with query params", async () => {
 		const res = await client.posts[":id"].$get({
 			param: { id: "123" },
-			query: { page: "2" },
+			query: { page: "2" }
 		});
 		expect(res.status).toBe(200);
 		expect(res.headers.get("X-Message")).toBe("Hi!");
@@ -38,7 +38,7 @@ describe("app", () => {
 
 	it("DELETE /posts/:id should delete a post", async () => {
 		const res = await client.posts[":id"].$delete({
-			param: { id: "456" },
+			param: { id: "456" }
 		});
 		expect(res.status).toBe(200);
 		expect(await res.text()).toBe("456 is deleted!");
@@ -67,8 +67,8 @@ describe("app", () => {
 	it("GET /admin with auth should return authorized message", async () => {
 		const res = await client.admin.$get(undefined, {
 			headers: {
-				Authorization: `Basic ${btoa("admin:secret")}`,
-			},
+				Authorization: `Basic ${btoa("admin:secret")}`
+			}
 		});
 		expect(res.status).toBe(200);
 		expect(await res.text()).toBe("You are authorized!");
@@ -77,8 +77,8 @@ describe("app", () => {
 	it("GET /admin/index.html with auth should return HTML page", async () => {
 		const res = await app.request("/admin/index.html", {
 			headers: {
-				Authorization: `Basic ${btoa("admin:secret")}`,
-			},
+				Authorization: `Basic ${btoa("admin:secret")}`
+			}
 		});
 		expect(res.status).toBe(200);
 		expect(res.headers.get("Content-Type")).toMatch(/text\/html/);

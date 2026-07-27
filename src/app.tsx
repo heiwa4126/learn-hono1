@@ -6,12 +6,12 @@ import { z } from "zod";
 const api = new Hono().get("/hello", (c) => {
 	return c.json({
 		ok: true,
-		message: "Hello Hono!",
+		message: "Hello Hono!"
 	});
 });
 
 export const postsQuerySchema = z.object({
-	page: z.coerce.number().positive().optional().default(0),
+	page: z.coerce.number().positive().optional().default(0)
 });
 
 const posts1 = new Hono()
@@ -53,8 +53,8 @@ const app = new Hono()
 		"/admin/*",
 		basicAuth({
 			username: "admin",
-			password: "secret",
-		}),
+			password: "secret"
+		})
 	)
 	.get("/admin", (c) => {
 		return c.text("You are authorized!");

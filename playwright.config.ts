@@ -36,16 +36,16 @@ export default defineConfig({
 
 		httpCredentials: {
 			username: "admin",
-			password: "secret",
-		},
+			password: "secret"
+		}
 	},
 
 	/* Configure projects for major browsers */
 	projects: [
 		{
 			name: "chromium",
-			use: { ...devices["Desktop Chrome"] },
-		},
+			use: { ...devices["Desktop Chrome"] }
+		}
 		// {
 		// 	name: "MS Edge",
 		// 	use: { ...devices["Desktop Chrome"], channel: "msedge" },
@@ -85,6 +85,6 @@ export default defineConfig({
 	webServer: {
 		command: "pnpm run dev", // もしテストするサーバが起動していなかったら、このコマンドで起動する
 		url: "http://localhost:3000/",
-		reuseExistingServer: !process.env.CI,
-	},
+		reuseExistingServer: !process.env.CI
+	}
 });
