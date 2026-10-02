@@ -46,18 +46,18 @@
 	},
 	"dependencies": {
 		"@hono/node-server": "^2.1.1",
-		"@hono/zod-validator": "^0.9.0",
-		"hono": "^4.13.4"
+		"@hono/zod-validator": "^0.9.1",
+		"hono": "^4.13.9"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.62.1",
-		"@types/node": "^26.3.0",
+		"@playwright/test": "^1.63.0",
+		"@types/node": "^26.6.2",
 		"npm-run-all2": "^9.0.3",
-		"tsdown": "0.22.14",
-		"tsx": "^4.23.12",
+		"tsdown": "0.23.0",
+		"tsx": "^4.23.15",
 		"typescript": "^7.0.2",
-		"vite": "8.2.2",
-		"vitest": "^4.1.11",
-		"zod": "^4.4.3"
+		"vite": "8.3.1",
+		"vitest": "^5.0.1",
+		"zod": "^4.6.5"
 	}
 }
