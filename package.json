@@ -45,7 +45,7 @@
 		"test:e2e": "run-s test:e2e:test test:e2e:show-report"
 	},
 	"dependencies": {
-		"@hono/node-server": "^2.1.6",
+		"@hono/node-server": "^2.1.8",
 		"@hono/zod-validator": "^0.9.1",
 		"hono": "^4.13.14"
 	},
